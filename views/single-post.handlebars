@@ -1,0 +1,31 @@
+{{> sp-post-info post}}
+
+{{#if loggedIn}}
+<form class="comment-form">
+  <div>
+    <textarea name="comment-body" placeholder="Comment"></textarea>
+  </div>
+  <div>
+  <label for="tags">Choose a tag:</label>
+  <select name="tags" id="tags">
+    <option value="geninfo">General Info</option>
+    <option value="humour">Humour</option>
+    <option value="media">Media</option>
+  </select>
+  </div>
+  <div>
+    <button class="btn-secondary" type="submit">add comment</button>
+  </div>
+</form>
+
+{{> comments post.comments post_id=post.id}}
+{{/if}}
+
+{{#unless loggedIn}}
+{{> commentslogout post.comments}}
+{{/unless}}
+
+{{#if loggedIn}}
+<script src="/javascript/comments.js"></script>
+<script src="/javascript/upvote.js"></script>
+{{/if}}

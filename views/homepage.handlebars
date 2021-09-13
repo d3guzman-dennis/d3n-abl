@@ -1,0 +1,46 @@
+{{#if loggedIn}}
+
+<div class="inner-main-body mb-3 p-2 p-sm-3 collapse forum-content show"></div>
+      <a href="/newpost">
+        <button class="btn-secondary has-icon p-2 p-sm-3" type="button">
+          NEW POST
+        </button></a>
+
+<!-- /Inner sidebar header -->
+
+
+  <ul class="post-list">
+    {{#each posts as |post|}}
+    <li>
+      {{> hp-post-info post }}
+    </li>
+    {{/each}}
+  </ul>
+</div>
+
+
+
+{{else}}
+<div class="container h-80">
+  <div class="row align-items-center h-100">
+    <div class="col-3 mx-auto">
+      <div class="text-center">
+        <img id="profile-img" class="rounded-circle profile-img-card" src="nabllogosmall.png" />
+        <p id="profile-name" class="profile-name-card"></p>
+        <form class="login-form">
+          <label for="email-login">email:</label>
+          <input type="text" id="email-login" class="form-control form-group" placeholder="email" required autofocus />
+          <label for="password-login">password:</label>
+          <input type="password" name="password" id="password-login" class="form-control form-group"
+            placeholder="password" required autofocus>
+          <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">login</button>
+        </form><!-- /form -->
+        <a href="/signup">Don't have an account? Signup</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/javascript/login.js"></script>
+
+{{/if}}

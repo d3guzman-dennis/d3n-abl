@@ -1,0 +1,29 @@
+<div class="comments">
+  Filter by:
+  <div class="tags">
+  <a href="/post/{{post_id}}" class="color2">All</a>
+  <a href="/post/{{post_id}}/1" class="color2">General Info</a>
+  <a href="/post/{{post_id}}/2" class="color2">Humour</a>
+  <a href="/post/{{post_id}}/3" class="color2">Media</a>
+  </div>
+  
+  {{#each this}}
+  <section class="comment {{sentiment_analyze comment_text}}">
+    <div class="meta">
+      {{user.username}} on {{format_date created_at}}
+    </div>
+    <div class="text">
+      {{comment_text}}
+      {{cvote_count}} {{format_plural "point" cvote_count}}
+
+      <button type="button" class="cupvote-btn" id={{id}}><i class="far fa-thumbs-up fa-2x"></i></button>
+    </div>
+    <div class="tags small">
+      <a title="" href="" class="color2">{{tag.tag_text}}</a>
+    
+    </div>
+  </section>
+  {{/each}}
+</div>
+
+<script src="/javascript/comment-upvote.js"></script>
